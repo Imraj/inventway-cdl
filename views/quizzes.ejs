@@ -1,0 +1,27 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+ <div class="gtco-container">
+   <div class="row row-pb-md">
+     <div class="col-md-12 animate-box">
+
+         <div class="col-md-4" ng-repeat="q in all_quizzes">
+
+             <img src="{{q.quizPoster}}" width="300" height="200"/>
+             <div class="row">
+                 <div class="col-md-12">
+                     <h3><a href="/#/quiz/{{q._id}}" ng-click="openQuizDetails(q._id)">{{q.quizName}}</a></h3>
+                     <a href="" class="pull-right">${{q.price}}</a>
+                 </div>
+                 <div class="row">
+                   <div class="col-md-12">
+                     <a href="/quiz/{{q._id}}/purchase" class="btn btn-default col-md-12">Purchase</a>
+                   </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</div>

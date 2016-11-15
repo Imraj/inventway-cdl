@@ -1,0 +1,53 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+
+<div class="gtco-section">
+    <div class="gtco-container">
+      <div class="col-md-12 row-pb-md">
+        <div class="col-md-12">
+
+          <div class="col-md-12">
+            <div class="col-md-3">
+              <p><img src="{{tutor.image}}" height="125" width="100" style="width:100%;" /></p>
+              <p><a href="/#/tutor/{{tutor._id}}/transaction" class="btn btn-default col-md-12">Contact</a></p>
+              <p><a ng-click="startTutorMessage(tutor._id)" class="btn btn-default col-md-12">Send Message</a></p>
+            </div>
+            <div class="col-md-9">
+              <h3>{{tutor.firstname}} {{tutor.lastname}}</h3>
+
+
+              <p>
+                  {{tutor.shortIntro}}
+              </p>
+              <hr/>
+              <p>
+                  {{tutor.about}}
+              </p>
+
+              <p>
+                <b>Languages : </b>
+                <div ng-repeat="language in tutor.languages">
+                    {{language}},
+                </div>
+              </p>
+
+              <p>
+                <b>Categories : </b>
+                <div ng-repeat="category in tutor.categories">
+                  {{category}}
+                </div>
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+    </div>
+  </div>

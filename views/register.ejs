@@ -1,0 +1,88 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+ <div class="gtco-container">
+   <div class="row row-pb-md">
+     <div class="col-md-6 col-md-offset-3 animate-box">
+       <div class="text-center" ng-show="initialView==1">Sign up with <a href="#">Facebook</a> or <a href="#">Google</a></div>
+       <hr/>
+       <button class="btn btn-default col-md-12 col-sm-12 col-xs-12 btn-lg" style="background-color:blue;color:white;" ng-click="authenticate('facebook')" ng-show="initialView==0"><span class="ti-facebook pull-left"></span>Continue with Facebook</button>
+       <div class="text-center" ng-show="initialView==0">or</div>
+
+       <button class="btn btn-default col-md-12 col-sm-12 col-xs-12 btn-lg" style="color:black;" ng-show="initialView==0" ng-click="authenticate('google')"><span class="ti-google pull-left"></span>Continue with Google</button>
+       <div class="text-center" ng-show="initialView==0">or</div>
+
+       <button class="btn btn-primary col-md-12 col-sm-12 col-xs-12 btn-lg" ng-show="initialView==0" ng-click="signUpWithEmail()"><span class="ti-email pull-left" ></span>Sign up with Email Address</button>
+       <form ng-show="initialView==1" name="RegForm">
+
+     <div class="row form-group">
+           <div class="col-md-12">
+             <label class="sr-only" for="name">Name</label>
+             <input type="text" id="name" name="fullname" class="form-control" ng-model="userData.fullname" placeholder="Your firstname" required ng-minlength="6">
+             <div class="error-msg" ng-messages="RegForm.fullname.$error" ng-if="RegForm.fullname.$touched">
+                 <div ng-message="required">Full Name is required</div>
+                 <div ng-message="minlength">Name is too short</div>
+             </div>
+           </div>
+
+         </div>
+
+         <div class="row form-group">
+           <div class="col-md-12">
+             <label class="sr-only" for="email">Email Address</label>
+             <input type="text" id="email" class="form-control" name="email" placeholder="Your email address" ng-model="userData.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+             <div class="error-msg" ng-messages="RegForm.email.$error" ng-if="RegForm.email.$touched">
+                  <div ng-message="required">Email Address is required.</div>
+                  <div ng-message="pattern">Invalid email address.</div>
+             </div>
+           </div>
+         </div>
+
+         <div class="row form-group">
+           <div class="col-md-12">
+             <label class="sr-only" for="password">Password</label>
+             <input type="password" id="password" class="form-control" placeholder="Your password" name="password"
+               ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"    required ng-minlength="8" ng-maxlength="20" ng-model="userData.password">
+             <div class="error-msg" ng-messages="RegForm.password.$error" ng-if="RegForm.password.$touched">
+                  <div ng-message="required">Password is required.</div>
+                  <div ng-message="minlength">Password must be between 8 and 20 characters.</div>
+                  <div ng-message="maxlength">Password must be between 8 and 20 characters.</div>
+                  <div ng-message="pattern">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol)</div>
+             </div>
+           </div>
+         </div>
+
+         <div class="row form-group">
+           <div class="col-md-12">
+             <label class="sr-only" for="cpassword">Confirm Password</label>
+             <input type="password" id="password_c" class="form-control" placeholder="Confirm your password" valid-password-c="userData.password" name="password_c" ng-model="userData.password_c"
+                   required>
+             <div class="error-msg" ng-messages="RegForm.password_c.$error" ng-if="RegForm.password_c.$touched">
+                  <div ng-message="required">Confirm your password.</div>
+                 <div ng-message="noMatch">Passwords do not match.</div>
+             </div>
+           </div>
+         </div>
+
+         <div class="form-group">
+           <input type="submit" value="Create Account"  class="btn btn-primary col-md-12 col-sm-12 col-xs-12 btn-lg" ng-disabled="RegForm.$invalid" ng-click="registerUser()">
+         </div>
+
+       </form>
+       <br/><br/>
+       <div class="row" style="margin-top:3em;">
+         <div class="col-md-12 col-sm-12 col-xs-12">
+             <div class="col-md-7 col-sm-12 col-xs-12" style="font-size:1.2em;">
+                 <b>Already have an account? </b>
+             </div>
+
+             <div class="col-md-4 col-sm-12 col-xs-12">
+                 <a href="/#/login" class="btn btn-primary btn-outline" >Sign In</a>
+             </div>
+         </div>
+       </div>
+     </div>
+ </div>
+</div>
+</div>

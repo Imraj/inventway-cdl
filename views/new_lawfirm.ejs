@@ -1,0 +1,121 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+  <div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row row-pb-md">
+        <div class="col-md-10 col-md-offset-1 animate-box">
+          <h2>New Law Firm / Lawyer</h2>
+          <hr/>
+
+
+          <form name="FirmForm">
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-3">
+
+                  <img src="images/logo.jpg" ng-click="uploadLogo()" height="125" width="100" style="width:100%;" />
+                </div>
+                <div class="col-md-9">
+                  <input type="text" ng-model="firm.name" name="firm_name" class="form-control" placeholder="Firm name" required ng-minlength="3">
+                  <div class="error-msg" ng-messages="FirmForm.firm_name.$error" ng-if="FirmForm.firm_name.$touched">
+                      <span ng-message="required">Firm name is required</span>
+                      <span ng-message="minlength">Firm name is too short</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                  <input type="text" ng-model="firm.tagline" name="tagline" class="form-control" placeholder="Firm Tagline" required  ng-minlength="5">
+                  <div class="error-msg" ng-messages="FirmForm.tagline.$error" ng-if="FirmForm.tagline.$touched">
+                      <span ng-message="required">Firm tagline is required</span>
+                      <span ng-message="minlength">Firm tagline is too short</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                <textarea name="description" cols="30" rows="5" name="description" ng-model="firm.description" class="form-control" placeholder="Firm Description" required ng-minlength="30"></textarea>
+                <div class="error-msg" ng-messages="FirmForm.description.$error" ng-if="FirmForm.description.$touched">
+                    <span ng-message="required">Firm description is required</span>
+                    <span ng-message="minlength">Firm description is too short</span>
+                </div>
+                </div>
+              </div>
+            </div>
+            <hr/>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                <textarea name="address" cols="30" rows="2" name="address" ng-model="firm.address" class="form-control" placeholder="Law Firm Address" ng-minlength="5" required   ></textarea>
+                <div class="error-msg" ng-messages="FirmForm.address.$error" ng-if="FirmForm.address.$touched">
+                    <span ng-message="required">Firm name is required</span>
+                    <span ng-message="minlength">Firm name is too short</span>
+                </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text"  class="form-control" name="openBy" ng-model="firm.openTime" placeholder="Firm Openning hours" required>
+                  <div class="error-msg" ng-messages="FirmForm.openBy.$error" ng-if="FirmForm.openBy.$touched">
+                      <span ng-message="required">Opening time is required</span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="closeAt" ng-model="firm.closeTime" placeholder="Firm Closing hours">
+                  <div class="error-msg" ng-messages="FirmForm.closeAt.$error" ng-if="FirmForm.closeAt.$touched">
+                      <span ng-message="required">Closing time is required</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text"  class="form-control" name="website" ng-model="firm.website" placeholder="Firm Website">
+                </div>
+                <div class="col-md-6">
+                  <input type="text"  class="form-control" name="email" ng-model="firm.email" placeholder="Firm Contact email">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="facebook" ng-model="firm.facebook" placeholder="Firm Facebook Page">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="twitter" ng-model="firm.twitter" placeholder="Firm Twitter Handle">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group" style="margin-top:5em;">
+              <input type="submit" value="Add Law Firm" ng-disabled="FirmForm.$invalid" ng-click="addLawFirm()" class="btn btn-primary btn-lg col-md-12">
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+      </div>
+
+    </div>
+  </div>

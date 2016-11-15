@@ -1,0 +1,132 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+  <div class="gtco-container">
+      <div class="row row-pb-md">
+        <div class="col-md-12  animate-box">
+
+                <div class="col-md-12">
+                    <div class="col-md-6" ng-show="!showCCForm">
+
+                        <table border="0" cellpadding="10" cellspacing="0" align="center"><tr><td align="center"></td></tr>
+                        <tr>
+                            <td>
+                              <a href="https://www.paypal.com/uk/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/uk/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;" class="btn btn-primary">Continue with PayPal</a>
+                            </td>
+                        </tr>
+
+                        <tr><td align="center"><a href="https://www.paypal.com/uk/webapps/mpp/paypal-popup" title="How PayPal Works" onclick="javascript:window.open('https://www.paypal.com/uk/webapps/mpp/paypal-popup','WIPaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=1060, height=700'); return false;"><img src="https://www.paypalobjects.com/webstatic/mktg/Logo/pp-logo-200px.png" border="0" alt="PayPal Logo"></a></td></tr></table><!-- PayPal Logo -->
+
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary" ng-click="showCCForm=!showCCForm">Continue with Credit Card</button>
+                        <a href='https://payments.intuit.com/payments/landing_pages/LB/default.jsp?c=VMAD&l=H&s=3&b=FFFFFF'target='_blank'><img alt='Credit card logos' title='Credit card logos' src='//payments.intuit.com/payments/landing_pages/LB/default.jsp?c=VMAD&l=H&s=3&b=FFFFFF'/></a>
+
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="col-md-12" ng-show="showCCForm">
+            <form name="PaymentForm">
+
+                <div class="form-group">
+                    <input type="hidden" value="credit_card" name="method" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" value="200" name="amount" />
+                </div>
+                <div class="form-group">
+                    <input type="hidden" value="USD" name="currency" />
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" ng-model="designer_card.firstname" name="firstname" placeholder="First Name" required/>
+                          <div class="error-msg" ng-messages="PaymentForm.firstname.$error" ng-if="PaymentForm.firstname.$touched">
+                             <span ng-message="required">First name is required</span>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="lastname" ng-model="designer_card.lastname" placeholder="Last Name" required/>
+                          <div class="error-msg" ng-messages="PaymentForm.lastname.$error" ng-if="PaymentForm.lastname.$touched">
+                             <span ng-message="required">Last name is required</span>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <select class="form-control" name="card_type" ng-model="designer_card.card_type" required>
+                                <option value="" disabled selected>Select Card Type</option>
+                                <option value="master_card">Master Card</option>
+                                <option value="visa_card">Visa Card</option>
+                            </select>
+                            <div class="error-msg" ng-messages="PaymentForm.card_type.$error" ng-if="PaymentForm.card_type.$touched">
+                               <span ng-message="required">Card type is required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="card_number" ng-model="designer_card.card_number" placeholder="Card Number" required/>
+                          <div class="error-msg" ng-messages="PaymentForm.card_number.$error" ng-if="PaymentForm.card_number.$touched">
+                             <span ng-message="required">Card number is required</span>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="card_month" ng-model="designer_card.card_month" placeholder="Card Expire Month" required/>
+                            <div class="error-msg" ng-messages="PaymentForm.card_month.$error" ng-if="PaymentForm.card_month.$touched">
+                               <span ng-message="required">Expire month is required</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="card_year" ng-model="designer_card.card_year" placeholder="Card Expire Year" required/>
+                          <div class="error-msg" ng-messages="PaymentForm.card_year.$error" ng-if="PaymentForm.card_year.$touched">
+                             <span ng-message="required">Expire year is required</span>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="card_cvv" ng-model="designer_card.card_cvv" placeholder="CVV" required/>
+                            <div class="error-msg" ng-messages="PaymentForm.card_cvv.$error" ng-if="PaymentForm.card_cvv.$touched">
+                               <span ng-message="required">CVV is required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                    <div class="form-group">
+                      <input type="submit" value="Proceed with payment" class="btn btn-primary col-md-12 col-sm-12 col-xs-12 btn-lg" ng-disabled="PaymentForm.$invalid" ng-click="submitTutorCardPayment()">
+                    </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+      </div>
+  </div>
+</div>

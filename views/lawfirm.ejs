@@ -1,0 +1,113 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+<div class="gtco-container">
+  <div class="row row-pb-md">
+    <div class="col-md-10 col-md-offset-1 animate-box">
+
+
+
+
+          <div class="col-md-12">
+            <div class="col-md-3">
+
+              <img src="{{firm.logo}}" height="125" width="100" style="width:100%;" />
+            </div>
+            <div class="col-md-9">
+              <h3>{{firm.name}}</h3>
+
+              <h5>{{firm.tagline}}</h5>
+            </div>
+          </div>
+
+
+          <div class="col-md-11 col-md-offset-1">
+            <h4>Ratings : </h4>
+            <input-stars max="5" ng-model="MLawController.mbiz.test"></input-stars>
+            {{mbiz.test}}
+          </div>
+
+
+
+          <div class="col-md-12" style="margin-top:4em;">
+            <div class="col-md-12">
+                {{firm.description}}
+            </div>
+          </div>
+
+        <hr/>
+
+
+
+          <div class="col-md-12">
+            <div class="col-md-12">
+            <h4>Contact Address:</h4>
+               {{firm.address}}
+            </div>
+
+          </div>
+
+
+
+
+
+        <div class="col-md-12">
+            <div class="col-md-6">
+              <span style="font-size:1.2em;">Open hours</span> :{{firm.openHours}}
+
+            </div>
+            <div class="col-md-6">
+              <span style="font-size:1.2em;">Contact email : </span> : {{firm.email}}
+
+            </div>
+        </div>
+
+
+       <div class="col-md-12">
+            <div class="col-md-6">
+              <span style="font-size:1.2em;">Website : </span> <a href="{{firm.website}}">{{firm.website}}</a>
+
+            </div>
+            <div class="col-md-6">
+              <span style="font-size:1.2em;">Facebook : </span> <a href="{{firm.facebook}}">{{firm.facebook}}</a>
+
+            </div>
+            <div class="col-md-6">
+              <span style="font-size:1.2em;">Twitter : </span> <a href="{{firm.twitter}}">{{firm.twitter}}</a>
+
+            </div>
+      </div>
+
+
+        <hr/>
+
+        <form>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Your comment on this business" ng-model="comment.text" rows="3" cols="30"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="Submit Comment" ng-click="submitFirmComment()" class="btn btn-primary" />
+          </div>
+        </form>
+
+        <hr/>
+
+        <div class="row form-group" style="margin-top:5em;">
+          <div class="col-md-12">
+            <div class="col-md-12">
+              <h4>Commenter name</h4>
+              <h5>Sept 9, 2000 | 8:50pm</h5>
+              The business name is this that thoseThe business name is this that thoseThe business name is this that those
+              The business name is this that thoseThe business name is this that thoseThe business name is this that those
+            </div>
+
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+  </div>
+
+</div>

@@ -1,0 +1,114 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+  <div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row row-pb-md">
+        <div class="col-md-10 col-md-offset-1 animate-box">
+          <h2>New Biz</h2>
+          <hr/>
+
+
+          <form>
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+
+                  <img src="images/logo.jpg" ng-click="uploadLogo()" height="125" width="100" style="width:100%;" />
+                </div>
+                <div class="col-md-6">
+                  <input type="text" id="name" ng-model="biz.name" class="form-control" placeholder="Business name">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                  <input type="text" id="name" ng-model="biz.tagline" class="form-control" placeholder="Business Tagline">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                  <select class="form-control" ng-model="biz.category">
+                    <option value="" disabled selected>Business Category</option>
+                    <option>Business Category 1</option>
+                    <option>Business Category 2</option>
+                    <option>Business Category 3</option>
+                    <option>Business Category 4</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                <textarea name="message" id="message" cols="30" rows="5" ng-model="biz.description" class="form-control" placeholder="Business Description"></textarea>
+                </div>
+              </div>
+            </div>
+            <hr/>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                <textarea name="message" id="message" cols="30" rows="2" ng-model="biz.address" class="form-control" placeholder="Business Address"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" ng-model="biz.openTime" placeholder="Business Openning hours">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" ng-model="biz.closeTime" placeholder="Business Closing hours">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" ng-model="biz.website" placeholder="Business Website">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" ng-model="biz.email" placeholder="Business Contact email">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" ng-model="biz.facebook" placeholder="Business Facebook Page">
+                </div>
+                <div class="col-md-6">
+                  <input type="text" id="name" class="form-control" ng-model="biz.twitter" placeholder="Business Twitter Handle">
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-group" style="margin-top:5em;">
+              <input type="submit" value="Add Business" ng-click="addBiz()" class="btn btn-primary btn-lg col-md-12">
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+      </div>
+
+    </div>
+  </div>

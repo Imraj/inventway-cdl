@@ -1,0 +1,115 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+  <div class="gtco-container">
+    <div class="col-md-12 row-pb-md">
+
+    <div class="col-md-10 col-md-offset-1 animate-box">
+      <h2>Edit Teenager</h2>
+      <hr/>
+                <form name="TeenagerForm">
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <div class="col-md-6">
+                              <img src="images/profile.jpg" height="125" ng-click="uploadImage()" width="100" style="width:100%;" />
+                              <span>
+                                  {{teenager.image}}
+                              </span>
+                          </div>
+                          <div class="col-md-6">
+                            <input type="text" class="form-control" name="firstname" ng-model="teenager.firstname" required placeholder="Your first name">
+                            <div class="error-msg" ng-messages="TeenagerForm.firstname.$error" ng-if="TeenagerForm.firstname.$touched">
+                                <span ng-message="required">First name is required</span>
+                            </div>
+                            <br/>
+                            <input type="text" class="form-control" ng-model="teenager.lastname" name="lastname" placeholder="Your last name">
+                            <div class="error-msg" ng-messages="TeenagerForm.lastname.$error" ng-if="TeenagerForm.lastname.$touched">
+                                <span ng-message="required">First name is required</span>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <div class="col-md-6">
+                          <input type="text" name="email"  required class="form-control" ng-model="teenager.email" placeholder="Your email address">
+                          <div class="error-msg" ng-messages="TeenagerForm.email.$error" ng-if="TeenagerForm.email.$touched">
+                              <span ng-message="required">Email Address is required</span>
+
+                          </div>
+                          </div>
+                          <div class="col-md-6">
+                              <input type="text" id="name" class="form-control" ng-model="teenager.skypeId" placeholder="Your Skype Id">
+
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <div class="col-md-12">
+                          <textarea name="shortIntro" cols="30" rows="1" ng-model="teenager.shortIntro" required ng-minlength="10" class="form-control" placeholder="Short Intro of you"></textarea>
+                          <div class="error-msg" ng-messages="TeenagerForm.shortIntro.$error" ng-if="TeenagerForm.shortIntro.$touched">
+                              <span ng-message="required">Short intro is required</span>
+                              <span ng-message="minlength">Invalid short intro</span>
+                          </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <div class="col-md-12">
+                          <textarea name="about" cols="30" rows="3" ng-model="teenager.about" class="form-control" required ng-minlength="30" placeholder="About you"></textarea>
+                          <div class="error-msg" ng-messages="TeenagerForm.about.$error" ng-if="TeenagerForm.about.$touched">
+                              <span ng-message="required">About you is required</span>
+                              <span ng-message="minlength">About you is too short</span>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr/>
+
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <h3>Languages (Select all that applies) </h3>
+                          <div ng-repeat="fl in foreignLanguages track by $index">
+                            <input type="checkbox" style="width:1.4em;height:1.2em;" name="{{fl}}" ng-click="toggleSelection(fl)" ng-checked="teenager.languages.indexOf(fl) > -1"/> <span style="font-size:1.5em;">{{fl}}</span>
+
+                          </div>
+
+                        </div>
+                      </div>
+                      <hr/>
+                      <div class="row form-group">
+                        <div class="col-md-12">
+                          <h3> Categories (Select all that applies)</h3>
+                          <div class="col-md-6 ">
+                            <div ng-repeat="cat in categories track by $index">
+                              <input type="checkbox" style="width:1.4em;height:1.2em;" ng-click="toggleCatSelection(cat)" ng-checked="teenager.categories.indexOf(cat) > -1" name="{{cat}}" value="{{cat}}" /> <span style="font-size:1.5em;">{{cat}}</span>
+
+                            </div>
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <div class="form-group" style="margin-top:5em;">
+                        <div class="col-md-12">
+                          <input type="submit" value="Create Profile" ng-disabled="TeenagerForm.$invalid" ng-click="addTeenager()" class="btn btn-primary btn-lg col-md-12">
+                        </div>
+                      </div>
+
+                </form>
+              </div>
+
+    </div>
+  </div>
+</div>

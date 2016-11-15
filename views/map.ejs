@@ -1,0 +1,26 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+
+<div class="gtco-section" >
+  <div class="gtco-container">
+    <div class="row row-pb-md">
+      <div class="col-md-12 animate-box">
+
+
+            <div class="col-md-12">
+                  <div class="text-center" style="font-size:1.5em;">
+                      {{amap.title}}
+                  </div>
+
+                  <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapUrl}}" >
+                              <ng-map center="[40.74, -74.18]"  map-type-control-options="{style:'HORIZONTAL_BAR', position:'BOTTOM_CENTER'}"
+                                         zoom="6" style="height:30em;" on-click="addNewMarker(event)">
+                  </div>
+
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>

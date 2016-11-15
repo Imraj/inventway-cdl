@@ -1,0 +1,49 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+    <div class="gtco-container">
+        <div class="col-md-12 row-pb-md">
+                      <div class="col-md-3">
+                        <p><img src="{{infograph.image}}" height="125" width="100" style="width:100%;" /></p>
+                        <p><a href="/#/designer/{{infograph._id}}/transaction" class="btn btn-default col-md-12">Contact</a></p>
+                        <p><a href="/#/" class="btn btn-default col-md-12">Send Message</a></p>
+                      </div>
+                      <div class="col-md-9">
+                        <h3>{{infograph.firstName}} {{infograph.lastName}}</h3>
+
+
+                        <p>
+                            {{infograph.shortIntro}}
+                        </p>
+                        <hr/>
+                        <p>
+                            {{infograph.description}}
+                        </p>
+
+                        <p>
+                          <b>Categories : </b>
+                          <div ng-repeat="cat in infograph.categories">
+                            {{cat}}
+                          </div>
+                        </p>
+
+
+                        <h3>Previous work</h3>
+                        <div id="gtco-products">
+                          <div class="gtco-container">
+                            <div class="row animate-box">
+                              <div class="owl-carousel owl-carousel-fullwidth">
+                              <span ng-repeat="p_img in infograph.portfolio">
+                                <div class="col-md-12 item" >
+                                  <img src="{{p_img}}"    />
+                                </div>
+                              </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                </div>
+          </div>
+      </div>
+  </div>

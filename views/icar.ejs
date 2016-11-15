@@ -1,0 +1,26 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+  <div class="gtco-container">
+    <div class="row row-pb-md">
+      <div class="col-md-12  animate-box">
+
+          <div class="col-md-4" style="margin-bottom:2em;" ng-repeat="car in icars track by $index">
+                <img src="{{car.images[0]}}" height="200" width="100" style="width:100%;" />
+                <div class="text-center">
+                  <span style="font-size:1.2em;">{{car.make}} {{car.name}}</span><br/>
+
+                  <span><a href="/#/car/{{car._id}}">View Details</a></span>
+
+                  <div class="col-md-12">
+                    <div class="col-md-3 col-md-offset-2">
+                      <a href="/#/car/{{car._id}}/edit" class="btn btn-default">Edit</a>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      </div>
+   </div>
+ </div>
+</div>

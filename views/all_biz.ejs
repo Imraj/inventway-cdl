@@ -1,0 +1,32 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+
+
+<div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row row-pb-md">
+        <div class="col-md-12  animate-box">
+            <div class="col-md-12" ng-repeat="biz in bizs">
+                  <div class="col-md-3">
+                    <img src="{{biz.logo}}" alt="image : {{biz.logo}}" height="150" width="100" style="width:100%;" />
+                  </div>
+                  <div class="col-md-9">
+
+                          <div style="font-size:1.2em;">{{biz.name}}</div>
+
+                          <i>{{biz.tagline}}</i>
+
+                          <p>
+                            {{biz.description | limitTo: 250}}
+                          </p>
+                          <span><a href="/#/biz/{{biz._id}}">View Details</a></span>
+
+                      </div>
+
+            </div>
+          </div>
+      </div>
+   </div>
+</div>
+</div>

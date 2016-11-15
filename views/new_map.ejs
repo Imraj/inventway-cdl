@@ -1,0 +1,31 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+
+<div class="gtco-section" >
+
+      <div map-lazy-load="https://maps.google.com/maps/api/js" map-lazy-load-params="{{googleMapUrl}}" >
+          <ng-map center="[40.74, -74.18]"  map-type-control-options="{style:'HORIZONTAL_BAR', position:'BOTTOM_CENTER'}"
+           zoom="3" style="height:30em;" on-click="addNewMarker(event)">
+
+
+
+              <info-window>
+                    <custom-control id="home" position="LEFT" index="4" style="height:5em;">
+                          <form>
+                              <div class="form-group" style="background-color:white;">
+                                <input type="text" class="form-control" placeholder="Title" ng-model="posInfo.title" required/>
+                              </div>
+                              <div class="form-group" style="background-color:white;">
+                                <input type="number" class="form-control" placeholder="Price" ng-model="posInfo.price" required/>
+                              </div>
+                              <div class="form-group">
+                                  <input type="submit" value="Submit" class="btn btn-success col-md-12" ng-click="submitMap()"/>
+                              </div>
+                          </form>
+                    </custom-control>
+              </info-window>
+          </ng-map>
+
+        </div>
+</div>

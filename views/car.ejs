@@ -1,0 +1,76 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+    <div class="gtco-container">
+          <div class="row row-pb-md">
+              <div class="col-md-12  animate-box">
+                  {{car}}
+                <div class="col-md-12">
+                      <span style="font-size:2.5em;"><b>{{car.make}} {{car.name}}</b></span><br/>
+                      <span style="font-size:1.2em;">{{car.price}}</span>
+
+                      <p>{{car.description}}</p><br/>
+
+                      <hr/>
+
+                      <h3>Features (Select all that applies) </h3>
+                      <div class="col-md-4"  ng-repeat="car_feature in car_features track by $index" ng-show="car.features[$index]">
+                        <input type="checkbox" style="width:1.5em;height:1.3em;" name="{{car_feature}}" ng-model="car.features[$index]" value="{{car_feature}}"  />
+                        <span style="font-size:1.5em;">{{car_feature}}</span>
+
+                      </div>
+
+                      <hr/>
+
+                      <div id="gtco-products">
+                        <div class="gtco-container">
+                          <div class="row animate-box">
+                            <div class="owl-carousel owl-carousel-carousel">
+                              <div class="item" ng-repeat="img in car.images">
+                                <img src="{{img}}" alt="" width="300" height="300">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id="gtco-products" style="margin-top:3em;">
+                        <div>
+                          <div class="row animate-box">
+                            <div class="owl-carousel owl-carousel-carousel">
+                              <div class="item">
+                                <img src="images/img_1.jpg" alt="">
+                              </div>
+                              <div class="item">
+                                <img src="images/img_1.jpg" alt="">
+                              </div>
+                              <div class="item">
+                                <img src="images/img_1.jpg" alt="">
+                              </div>
+                              <div class="item">
+                                <img src="images/img_1.jpg" alt="">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <div>
+                          <video src="{{car.video}}"></video>
+                      </div>
+
+                      <div class="col-md-12">
+                          <div class="col-md-6 col-md-offset-2"><button class="btn btn-default">Contact Seller</button></div>
+                      </div>
+
+
+                </div>
+
+
+              </div>
+          </div>
+      </div>
+  </div>

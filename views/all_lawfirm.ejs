@@ -1,0 +1,27 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+
+<div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row row-pb-md">
+        <div class="col-md-10  animate-box">
+            <div class="col-md-12" ng-repeat="firm in firms">
+              <div class="col-md-3">
+                <img src="{{firm.logo}}" height="125" width="100" style="width:100%;" />
+              </div>
+              <div class="col-md-9 pull-right">
+                <h2>{{firm.name}}</h2>
+                <i>{{firm.tagline}}</i><br/>
+                <p>
+                   {{firm.description | limitTo:250}}
+                </p>
+                <p><a href="/#/lawfirm/{{firm._id}}">View More</a></p>
+              </div>
+              <hr/>
+            </div>
+          </div>
+      </div>
+   </div>
+</div>
+</div>

@@ -1,0 +1,36 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+
+<div class="gtco-section" >
+  <div class="gtco-container">
+    <div class="row row-pb-md">
+      <div class="col-md-12 animate-box">
+
+
+            <div class="col-md-4" ng-repeat="m in all_maps track by $index">
+
+                <div>
+                  <p>
+                      <ng-map center="[40.74, -74.18]" zoom="3"  ></ng-map>
+                  </p>
+                </div>
+
+                <div class="row" style="font-size:1.5em;">
+                  <div class="col-md-12">
+                    <a href="/#/map/{{m._id}}" class="pull-left">{{m.title}}</a>
+                    <a href="" class="pull-right">${{m.price}}</a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <a href="/map/{{m._id}}/purchase" class="btn btn-default col-md-12">Purchase</a>
+                  </div>
+                </div>
+
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>

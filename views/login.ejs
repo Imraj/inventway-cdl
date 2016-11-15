@@ -1,0 +1,69 @@
+
+   <header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+  </header>
+  <div class="gtco-section">
+    <div class="gtco-container">
+      <div class="row row-pb-md">
+        <div class="col-md-6 col-md-offset-3 animate-box">
+
+          <hr/>
+          <form name="LoginForm">
+
+            <div class="row form-group" ng-show="_authToContinue">
+              <div class="col-md-12">
+                  <h3 style="color:red;" class="text-center alert">Login to your account to continue</h3>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label class="sr-only" for="email">Email</label>
+                <input type="text" id="email" name="email" class="form-control" placeholder="Your email address" ng-model="userData.email" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" />
+                <div class="error-msg" ng-messages="LoginForm.email.$error" ng-if="LoginForm.email.$touched">
+                     <div ng-message="required">Email Address is required.</div>
+                     <div ng-message="pattern">Invalid email address.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <label class="sr-only" for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Your password" ng-model="userData.password"  required ng-minlength="8" ng-maxlength="20" />
+                <div class="error-msg"  ng-messages="LoginForm.password.$error" ng-if="LoginForm.password.$touched">
+                     <div ng-message="required">Password is required.</div>
+                     <div ng-message="minlength">Password must be between 8 and 20 characters.</div>
+                     <div ng-message="maxlength">Password must be between 8 and 20 characters.</div>
+
+                </div>
+                <a href="/#/forgot_password" class="pull-right">Forgot Password?</a>
+              </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+              <input type="submit" value="Login" class="btn btn-primary col-md-12 col-sm-12 col-xs-12 btn-lg" ng-disabled="LoginForm.$invalid" ng-click="logInUser()">
+            </div>
+
+
+
+          </form>
+          <br/><br/>
+          <div class="row" style="margin-top:3em;">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-7" style="font-size:1.2em;">
+                    <b>Dont have an account? </b>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <a href="/#/register" class="btn btn-primary btn-outline" >Sign Up</a>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<header id="gtco-header" class="gtco-cover" style="background-image:url(images/img_bg_1.jpg);">
+
+</header>
+<div class="gtco-section">
+    <div class="gtco-container">
+      <div class="col-md-12 row-pb-md">
+            <div class="col-md-3">
+              <p><img src="{{teenager.image}}" height="125" width="100" style="width:100%;" /></p>
+              <p><button class="btn btn-default col-md-12">Contact</button></p>
+            </div>
+            <div class="col-md-9">
+              <h3>{{teenager.firstname}} {{teenager.lastname}}</h3>
+              <div>
+                  {{teenager.shortIntro}}
+              </div>
+              <hr/>
+              <div class="col-md-12">
+                  {{teenager.about}}
+              </div>
+
+              <div>
+                <b>Languages : </b>
+                <div ng-repeat="language in teenager.languages">
+                    {{language}},
+                </div>
+              </div>
+
+              <div>
+                <b>Categories : </b>
+                <div ng-repeat="category in teenager.categories">
+                  {{category}}
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>

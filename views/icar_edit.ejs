@@ -1,0 +1,169 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section">
+  <div class="gtco-container">
+    <div class="row row-pb-md">
+      <div class="col-md-12  animate-box">
+
+      <div class="col-md-10 col-md-offset-1 animate-box">
+          <h2>Edit Car</h2>
+          <hr/>
+
+
+          <form name="CarForm">
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" name="carName" ng-model="car.name" class="form-control" required ng-minlength="3" placeholder="Car name">
+                  <div class="error-msg" ng-messages="CarForm.carName.$error" ng-if="CarForm.carName.$touched">
+                      <span ng-message="required">Car name is required</span>
+                      <span ng-message="minlength">Car name is too short</span>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <input type="text" name="carMake"  ng-model="car.make" class="form-control" placeholder="Car make" required ng-minlength="3">
+                  <div class="error-msg" ng-messages="CarForm.carMake.$error" ng-if="CarForm.carMake.$touched">
+                      <span ng-message="required">Car make is required</span>
+                      <span ng-message="minlength">Car name is too short</span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="carYear" ng-model="car.year" placeholder="Car year of production/release" required ng-pattern="/^\d{4}$/">
+                  <div class="error-msg" ng-messages="CarForm.carYear.$error" ng-if="CarForm.carYear.$touched">
+                      <span ng-message="required">release year is required</span>
+
+                      <span ng-message="pattern">Invalid production year</span>
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <input type="text" class="form-control" name="carPrice" ng-model="car.price" placeholder="Car price" required ng-pattern="/^[\d]+$/">
+                  <div class="error-msg" ng-messages="CarForm.carPrice.$error" ng-if="CarForm.carPrice.$touched">
+                      <span ng-message="required">price is required</span>
+                      <span ng-message="pattern">Invalid price </span>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-12">
+                <textarea name="carDescription" cols="30" rows="5" ng-model="car.description" class="form-control" placeholder="Car Description" ng-minlength="30" required></textarea>
+                <div class="error-msg" ng-messages="CarForm.carDescription.$error" ng-if="CarForm.carDescription.$touched">
+                      <span ng-message="required"> Car description is required</span>
+                      <span ng-message="minlength"> Car description is too short(Minimum length of 30)</span>
+                </div>
+              </div>
+              </div>
+            </div>
+
+            <hr/>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+
+
+                    <h3>Features (Select all that applies) </h3>
+                    <div class="col-md-4"  ng-repeat="car_feature in car_features track by $index">
+                      <input type="checkbox" style="width:1.5em;height:1.3em;" name="{{car_feature}}" ng-model="car.features[$index]" value="{{car_feature}}"  />
+                      <span style="font-size:1.5em;">{{car_feature}}</span>
+
+                    </div>
+
+
+
+              </div>
+
+            </div>
+
+            <hr/>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <h3>Car Images</h3>
+
+                <div >
+                    <div class="col-md-4" ng-repeat="n in arrayImg track by $index">
+                      <img src="images/opd.png" ng-click="uploadCarImage($index)" height="152" width="125" style="width:100%;" />
+                      <input type="hidden" value="{{carImageUrl}}" ng-model="car.images[$index]"/>
+
+                    </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-4">
+                  <a ng-click="moreCarImage()"><span class="ti ti-plus">New Image</span></a>
+                </div>
+              </div>
+            </div>
+
+            <hr/>
+            <h3>Short video clip</h3>
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <img src="images/upload_video.png" ng-click="uploadCarVideo()" height="150" width="150" style="width:100%;" />
+
+                </div>
+
+              </div>
+            </div>
+            <hr/>
+            <h3>Contact Information</h3>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="email" name="cemail" ng-model="car.email" class="form-control" placeholder="Email Address" required>
+                  <div class="error-msg" ng-messages="CarForm.cemail.$error" ng-if="CarForm.cemail.$touched">
+                      <span ng-message="required">email address is required</span>
+
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <input type="text" name="cphone" ng-model="car.phone" class="form-control" placeholder="Phone Number">
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="row form-group">
+              <div class="col-md-12">
+                <div class="col-md-6">
+                  <input type="text" name="cskype" ng-model="car.skype" class="form-control" placeholder="Skype">
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class="form-group" style="margin-top:5em;">
+              <input type="submit" value="Add Car" ng-click="submitCar()" ng-disabled="CarForm.$invalid"  class="btn btn-primary btn-lg col-md-12">
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+   </div>
+ </div>
+</div>

@@ -1,0 +1,147 @@
+<header id="gtco-header" class="gtco-cover"  style="background-image:url(images/img_bg_1.jpg);height:100px;">
+
+</header>
+<div class="gtco-section" >
+  <div class="gtco-container">
+    <div class="row row-pb-md">
+      <div class="col-md-12 animate-box">
+
+
+
+        <form novalidate name="BookForm" >
+          <div ng-show="stage==1">
+            <div class="col-md-12">
+                  <div class="col-md-6">
+                      <h3 class="text-success">Translate New Book</h3>
+                  </div>
+                  <div class="col-md-6 pull-right">
+                        <button class="btn btn-primary" ng-click="uploadPdf()">Click to upload pdf</button>
+                        {{bookTitle}}
+                        <!--<input type="filepicker-dragdrop" data-fp-services="computer,dropbox,box"  on-success="onSuccess(event.fpfile)" />;-->
+                  </div>
+              </div>
+
+              <hr/>
+
+                  <div class="col-md-12">
+                          <div class="form-group col-md-6">
+                               <select class="form-control" ng-model="country" name="country" required>
+                                      <option value="" disabled selected>Select Country</option>
+                                      <option ng-repeat="c in countries" value="{{c}}">{{c}}</option>
+                                  </select>
+                                  <div class="error-msg" ng-messages="BookForm.country.$error" ng-if="BookForm.country.$touched">
+                                       <p ng-message="required">Country is required.</p>
+
+                                  </div>
+                             </div>
+
+                             <div class="form-group col-md-6">
+                               <select class="form-control" ng-model="state" name="state" required>
+                                    <option value="" disabled selected>Select state/zip</option>
+                                    <option ng-repeat="s in states" value="{{s}}">{{s}}</option>
+
+                                </select>
+                                <div class="error-msg" ng-messages="BookForm.state.$error" ng-if="BookForm.state.$touched">
+                                     <p ng-message="required">State is required.</p>
+
+                                </div>
+                              </div>
+                      </div>
+
+                      <div class="col-md-12">
+                              <div class="form-group col-md-6">
+                                      <input type="text" ng-model="bookTitle" name="bookTitle" class="form-control" placeholder="Book Title"
+                                      ng-minlength="2" required >
+                                      <div class="error-msg" ng-messages="BookForm.bookTitle.$error" ng-if="BookForm.bookTitle.$touched">
+                                           <p ng-message="required">Book Title is required.</p>
+                                           <p ng-message="minlength">Book Title is required.</p>
+                                      </div>
+                              </div>
+
+                                <div class="form-group col-md-6">
+                                        <label class="sr-only" for="country">Select book category</label>
+                                        <select class="form-control" ng-model="bookCategory" name="bookCategory" required>
+                                            <option value="" disabled selected>Select book category</option>
+                                            <option ng-repeat="b in bookoptions" value="{{b}}">{{b}}</option>
+
+                                        </select>
+                                        <div class="error-msg" ng-messages="BookForm.bookCategory.$error" ng-if="BookForm.bookCategory.$touched">
+                                             <p ng-message="required">Book Category is required.</p>
+
+                                        </div>
+                                </div>
+                      </div>
+
+                      <div class="col-md-12">
+                          <div class="form-group col-md-6">
+                                  <select class="form-control" ng-model="foreignLanguage" name="foreignLanguage" required>
+                                       <option value="" disabled selected="">Select foreign language</option>
+                                        <option ng-repeat="f in foreignlanguages" value="{{f}}">{{f}}</option>
+                                   </select>
+                                   <div class="error-msg" ng-messages="BookForm.foreignLanguage.$error" ng-if="BookForm.foreignLanguage.$touched">
+                                        <p ng-message="required">Foreign language is required.</p>
+                                  </div>
+                         </div>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="form-group col-md-12">
+                          <input type="submit" value="Continue" ng-click="nextStage()" ng-disabled="BookForm.$invalid" class="btn btn-primary col-md-6 btn-lg pull-right"/>
+                        </div>
+                      </div>
+
+
+          </div>
+
+
+      </form>
+      <div ng-show="stage==2">
+         <div class="col-md-12" style="font-size:1.5em;">
+             <div class="col-md-4">
+                 Category : {{bookCategory}}
+             </div>
+             <div class="col-md-8">
+                 Title : {{bookTitle}}
+             </div>
+             <hr/><hr/>
+         </div>
+
+
+         <br/><br/>
+
+         <div class="col-md-12" style="font-size:1em;">
+                    <span class="pull-left col-md-3" ng-click="prevPdfPage()">&lt;&lt;Previous</span>
+                    <span class="text-center col-md-3"><b>Page {{currentPage}} / {{totalPages}}</b></span>
+
+                    <span class="pull-right col-md-3" ng-click="nextPdfPage()">Next&gt;&gt;</span>
+          </div>
+
+          <br/><br/>
+
+          <div class="col-md-12">
+                        <span><button class="btn btn-success col-md-3 col-md-offset-2" ng-click="startConversion()">Translate to {{foreignLanguage}}</button></span>
+
+                        <span><button class="btn btn-success col-md-3 col-md-offset-1" ng-show="translatedFileId" ng-click="downloadTranslatedFile(translatedFileId)">Download translated file</button></span>
+          </div>
+
+          <div class="col-md-12">
+              <div class="col-md-6">
+                  <pdfviewer ng-src="{{ trustSrc(fileUrl) }}" on-page-load='pageLoaded(page,total)' class="col-md-12" width="700"  id="viewer"></pdfviewer>
+                  <!--<pdfviewer ng-src="test.pdf" on-page-load='pageLoaded(page,total)' class="col-md-12" width="700"  id="viewer"></pdfviewer>-->
+              </div>
+         </div>
+         <br/><br/>
+
+           <div class="col-md-12">
+             <div class="form-group col-md-12">
+               <button ng-click="prevStage()"  class="btn btn-primary col-md-5 btn-lg"> Previous </button>
+               <input type="submit" value="Submit" ng-click="submitPdf()"  class="btn btn-primary col-md-5 btn-lg pull-right"/>
+             </div>
+           </div>
+       </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
