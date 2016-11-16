@@ -41,7 +41,7 @@ require('./models/UContact');
 require('./models/Payment');
 
  
-mongoose.connect("mongodb://root:fD4qEEUR8xHg@ec2-54-183-254-91.us-west-1.compute.amazonaws.com:27017/cdlDB");
+mongoose.connect("mongodb://nyc2017:Newyork190@ec2-54-183-149-25.us-west-1.compute.amazonaws.com:27017/dummyDB");
 
 //mongoose.connect("mongodb://mhadiab:mhadiab85@mhadi85-9285.mongo.dbs.appsdeck.eu:30987/mhadi85-9285");
 //mongodb://<user>:<password>@mhadi85-9285.mongo.dbs.appsdeck.eu:30987/mhadi85-9285
